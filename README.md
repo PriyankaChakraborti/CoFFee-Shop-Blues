@@ -14,3 +14,8 @@ For manually running this code the files should be run in the following order:
 4) Feature_engineering_and_Analysis
 5) Coffee_Shop_Nash
 
+Data
+1) Yelp https://api.yelp.com
+2) Uber
+3) Zillow API - https://www.zillow.com/howto/api/APIOverview.htm
+4) Uber Movement - https://movement.uber.com/cities?lang=en-US
