@@ -2,7 +2,7 @@
 Serving coffee shop success with a side of Regression 
 
 Note that this code can be directly used by visiting the below heroku apps:
-- Interactive Neighborhood Scores Map (May take 10-20 seconds to load)\br
+- Interactive Neighborhood Scores Map (May take 10-20 seconds to load)/br
   https://interactive-neighb-score-maps.herokuapp.com/
 - Interactive Neighborhood Cluster Map (May take 10-20s to load)
   https://interactive-neighb-cluster-map.herokuapp.com/
