@@ -1,5 +1,5 @@
 # CoFFee-Shop-Blues
-'Serving coffee shop success with a side of Regression.'
+'Serving coffee shop success with a side of Regression.'<br>
 ![Alt Text](http://giphygifs.s3.amazonaws.com/media/Q6joirtIBHUsw/giphy.gif)
 
 
