@@ -1,6 +1,6 @@
 # CoFFee-Shop-Blues
 'Serving coffee shop success with a side of Regression.'
-![Alt Text](http://media.giphy.com/media/fXDGt9k1iDYAg/giphy.gif)
+![Alt Text](http://gph.is/18Y1QIC)
 
 
 
