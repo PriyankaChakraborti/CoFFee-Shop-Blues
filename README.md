@@ -1,6 +1,7 @@
 # CoFFee-Shop-Blues
 'Serving coffee shop success with a side of Regression.'
-https://miro.medium.com/max/1000/1*K0wyFSD3tHy8rDy5kd9caw.gif
+![](https://miro.medium.com/max/1000/1*K0wyFSD3tHy8rDy5kd9caw.gif| width=100)
+
 
 The end goal of this project is to develop an end to end solution for a potential coffee business big or small to unlock their true potential as a coffee shop. In lieu of publicly available coffee shop repositeries I have attempted to create my own by extensive feature engineering from the sources listed below.Additionally, borrowing some ideas from this link  https://medium.com/topos-ai/the-next-wave-predicting-the-future-of-coffee-in-new-york-city-23a0c5d62000 I engineered a target that I labelled the 'Utility Score'. Basically, it represents the popularity metric for a coffee shop in a neighborhood .I then weighted this 'score' by classification results from Bayesian NLP.The completed coffee repo is available here.
 
