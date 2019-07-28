@@ -3,7 +3,7 @@ requests==2.20.0
 Quandl==3.3.0
 
 pandas==0.24.2
-bokeh==1.0.4
+bokeh==1.2.0
 dill==0.2.7.1
 Flask==1.0.2
 jinja2==2.10
