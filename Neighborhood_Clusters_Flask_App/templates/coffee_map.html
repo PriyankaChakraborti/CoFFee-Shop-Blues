@@ -1,0 +1,58 @@
+
+<html>
+<head>
+<link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.js"></script>
+
+</head>
+<body>
+<H1>Neighborhood Clustering Comparison</H1>
+
+<form action="/">
+<select name="chosen_neighborhood">
+	{% for feature in list_of_neighb %}
+		{% if feature == neighb %}
+			<option selected value="{{ feature }}">{{ feature }}</option> 
+		{% else %} 
+			<option value="{{ feature }}">{{ feature }}</option> 
+		{% endif %}
+	{% endfor %}
+</select>
+<input type="submit">
+</form>
+
+<div style="width: 800px; display: inline-block;vertical-align: top;horizontal-align: left;">
+<h3>
+Below is the main plot I am trying to show on this page.<br>
+This shows the 20 neighborhoods judged to be most similar to the chosen 
+neighborhood, and displays their similarity to each other. Scores range from 
+Zero to Three. 0 indicates neighborhoods which are never clustered together and 
+Three means they are put in the same cluster by all 3 clustering algorithms. 
+Clustering algoirthms used are K-Means Clustering, GMM Clustering, and 
+Dendrogram Clustering. The higher the score the more confident we should be 
+that they have similar coffee culture.
+</h3>
+{{ script|safe }}
+{{ div|safe }}
+
+</div>
+
+<div style="width: 800px; display:block;vertical-align: top;horizontal-align: left;">
+<h3>
+The below plot shows the most important features for predicting the utility 
+score for a neighborhood. These are determined by using a Decision Tree.
+</h3>
+{{ script2|safe }}
+{{ div2|safe }}
+</div>
+
+
+</body>
+</html>
