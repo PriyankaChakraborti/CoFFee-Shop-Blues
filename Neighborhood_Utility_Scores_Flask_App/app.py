@@ -13,7 +13,7 @@ import pandas as pd
 # import os
 from bokeh.plotting import figure
 from bokeh.models import HoverTool, GeoJSONDataSource, LinearColorMapper, ColorBar,CategoricalColorMapper
-from bokeh.palettes import Plasma6
+from bokeh.palettes import Category10
 from bokeh.embed import components
 import geopandas as gpd
 from geopandas import GeoDataFrame
@@ -223,7 +223,7 @@ def showViz2(gpd_city_neighborhoods, chosen_city):
     # Add the lines to the map from our GeoJSONDataSource -object (it is important to specify the columns as 'xs' and 'ys')
     p.patches('xs', 'ys', source=map_source, color='gray', alpha=0.30, line_width=3,line_color = "white")
     # Create color map which will be used for displaying utility scores as unique colors
-    color_mapper = CategoricalColorMapper(factors=label_unique,palette=Plasma6)
+    color_mapper = CategoricalColorMapper(factors=label_unique,palette=Category10[4])
     
     # Add the lines to the map from our 'msource' ColumnDataSource -object
     p.circle('y', 'x', source=point_source, size=4, color={'field': 'category','transform': color_mapper},
