@@ -32,4 +32,4 @@ Data Sources
 2) Uber Movement - https://movement.uber.com/cities?lang=en-US
 3) Zillow API - https://www.zillow.com/howto/api/APIOverview.htm
 4) US Census API - https://www.census.gov/developers/
-5) Google.com - Scraped search results for rating
+5) Google.com - Scraped search results
