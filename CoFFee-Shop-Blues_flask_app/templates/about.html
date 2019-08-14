@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
+<meta name="author" content="@gotoariel">
+<!-- <link rel="icon" href="favicon.ico"> -->
+
+<title>How It Works</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+margin-bottom: 0;
+border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+padding-top: 20px;
+background-color: #f1f1f1;
+height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+background-color: #555;
+color: white;
+padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+.sidenav {
+height: auto;
+padding: 15px;
+}
+.row.content {height:auto;} 
+}
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>                        
+</button>
+<a class="navbar-brand" href="/">Coffee Shop Blues</a>
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav">
+<li><a href="/neighb_map">Neighborhood Utility Scores</a></li>
+<li><a href="/neighb_clusters">Neighborhood Cluster Plot</a></li>
+<li><a href="/pos_neg_words">Positive/Negative Words</a></li>
+<li class="active"><a href="/about">How it Works</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="https://github.com/PriyankaChakraborti/CoFFee-Shop-Blues" target="_blank">GitHub Source</a></li>
+</ul>
+
+</div>
+</div>
+</nav>
+
+<div class="container-fluid">    
+<div class="row">
+<div class="col-md-12">
+<h3>What is this?</h3>
+<p>This helps coffee lovers and coffee-shop owners make informed decisions 
+about which neighborhoods to explore or where to set up a business. </p>
+<h3>Neighborhood Map</h3>
+<p>This shows the utility score for each neighborhood. This represents how 
+strong the coffee culture is. It also allows you to visually see the density 
+of coffee shops in the area.</p>
+<h3>Neighborhood Clusters</h3>
+<p>This allows you to select a particular neighborhood. It then finds 19 other 
+similar neighborhoods and compares all using multiple clustering algorithms to 
+determine just how similar their coffee cultures are.</p>
+<h3>Positive/Negative Words</h3>
+<p>This shows the top 10 words most important to the positive or negative Yelp 
+Reviews for the chosen city. These are decided by using NLP and an SVM.</p>
+<h3>Future Plans</h3>
+<p>In the future I want to also incorporate game theory to add recommendations 
+for what type of options to coffee shop should include to be most successful 
+in its neighborhood.</p>
+</div>
+</div>
+</div>
+
+<footer class="container-fluid text-center">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

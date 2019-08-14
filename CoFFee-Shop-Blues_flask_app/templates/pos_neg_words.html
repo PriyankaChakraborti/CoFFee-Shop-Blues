@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
+<meta name="author" content="@gotoariel">
+<!-- <link rel="icon" href="favicon.ico"> -->
+
+<title>Positive/Negative Words</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- Bokeh -->
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.css" type="text/css" />
+
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+margin-bottom: 0;
+border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+padding-top: 20px;
+background-color: #f1f1f1;
+height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+background-color: #555;
+color: white;
+padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+.sidenav {
+height: auto;
+padding: 15px;
+}
+.row.content {height:auto;} 
+}
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>                        
+</button>
+<a class="navbar-brand" href="/">Coffee Shop Blues</a>
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav">
+<li><a href="/neighb_map">Neighborhood Utility Scores</a></li>
+<li><a href="/neighb_clusters">Neighborhood Cluster Plot</a></li>
+<li class="active"><a href="/pos_neg_words">Positive/Negative Words</a></li>
+<li><a href="/about">How it Works</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="https://github.com/PriyankaChakraborti/CoFFee-Shop-Blues" target="_blank">GitHub Source</a></li>
+</ul>
+
+</div>
+</div>
+</nav>
+
+<div class="container-fluid">
+<h2>Positive and Negative Words For City</h2>
+
+<form id = "select_city_words"action="/pos_neg_words" method="get">
+<select name="chosen_city">
+	{% for feature in list_of_cities %}
+		{% if feature == chosen_city %}
+			<option selected value="{{ feature }}">{{ feature }}</option> 
+		{% else %} 
+			<option value="{{ feature }}">{{ feature }}</option> 
+		{% endif %}
+	{% endfor %}
+</select>
+<input type="submit">
+</form>
+
+<div style="width: 600px; display: inline-block;vertical-align: top;horizontal-align: left;">
+{{ script|safe }}
+{{ div|safe }}
+<p>
+This shows the most significant positive and negative words for the chosen 
+city. This is decided by using a trained SVM to predict whether reviews 
+correspond to positive or negative reviews.
+</p>
+</div>
+
+
+<div style="width: 800px; display:block;vertical-align: top;horizontal-align: left;">
+{{ script2|safe }}
+{{ div2|safe }}
+<p>
+This shows the most important features for predicting the utility score for a 
+neighborhood. These are determined by using a Decision Tree. For reference, 
+pct_third_wave is the percentage of third-wave coffee-shops in the neighborhood 
+which are artisanal coffee shops and geometric_mean_tt is the average time it 
+takes to reach this neighborhood from anywhere else in the city.
+</p>
+</div>
+
+
+<footer class="container-fluid text-center">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- Bokeh
+=========== -->
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.js"></script>
+
+
+</body>
+</html>
