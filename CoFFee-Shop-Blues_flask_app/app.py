@@ -179,7 +179,6 @@ def showViz1(gpd_city_neighborhoods, chosen_city):
     
     # Create color map which will be used for displaying utility scores as unique colors
     color_mapper = LinearColorMapper(palette='Magma256', low=0, high=1000)
-    # color_mapper = LogColorMapper(palette='Magma256', low=400, high=4000)
     
     # Add the neighborhood data to the map from the point_source ColumnDataSource object
     # (it is important to specify the columns as 'xs' and 'ys')
@@ -255,8 +254,7 @@ df_feature2.drop(columns=['mean_rating','mean_review_count'],axis=1,inplace=True
 def clean_select_neighb(df_feature2):
     # Keep only neighborhoods with 10 or more known coffee shops
     data_temp=df_feature2[df_feature2['Count']>=10]
-
-    Y=np.asarray(data_temp['Avg_Utility_Score'])
+    
     X=np.asarray(data_temp.loc[:,~data_temp.columns.isin(['loc_City','Avg_Utility_Score','Count'])])
 
     columns=[col for col in data_temp.columns if col not in ['Avg_Utility_Score', 'Count','loc_City']]
@@ -284,7 +282,7 @@ def clean_select_neighb(df_feature2):
                        labels=labs,
                        leaf_rotation=0,
                        leaf_font_size=14,
-                       color_threshold=1.0, # 1.2 gives 11 clusters
+                       color_threshold=1.0,
                        orientation='right',
                        no_plot=True)
     a = pd.DataFrame(dendo['color_list'])
@@ -360,9 +358,6 @@ def showViz3(minmax_scaled_df, neighb):
     # Prepare data.frame in the right format
     df = df.stack().rename("value").reset_index()
 
-    # You can use your own palette here
-    colors = ['#d7191c', '#fdae61', '#ffffbf', '#a6d96a', '#1a9641']
-
     # I am using 'Viridis256' to map colors with value, change it with 'colors' if you need some specific colors
     mapper = LinearColorMapper(
         palette=Viridis256, low=0, high=3)
@@ -414,7 +409,6 @@ def showViz4(minmax_scaled_df):
     gmm = GaussianMixture(n_components=n_clusters).fit(importance_df.values)
     labels = gmm.predict(importance_df.values)
     
-    #X_train,X_test,Y_train,Y_test=train_test_split(importance_df.values,labels,test_size=0.2,random_state=42)
     X = importance_df.values
     y = labels
     
@@ -482,10 +476,8 @@ def find_polarity_score(relevant_frequency,relevant_words_score,relevant_reviews
     relevant_polarity_score['polarity'] = relevant_polarity_score.score * relevant_polarity_score.frequency / relevant_reviews.shape[0]
     
     # Drop unnecessary words not useful for coffee shop owners (Combination of stopwords and manually found)
-    
-    #stop_words_list = list(stopwords.words('english'))
     stop_words_list= list(STOP_WORDS)
-    print(stop_words_list)
+    
     manually_rev_words = ['great','amazing','love','best','awesome','excellent','good','favorite','loved',
                           'perfect','gem','perfectly','wonderful','happy','enjoyed','nice','well','super',
                           'like','better','decent','fine','pretty','enough','excited','impressed','ready',
@@ -588,7 +580,7 @@ def plot_word_polarity(df,title):
     
     p = figure(x_range=words, plot_height=500, plot_width=1100, toolbar_location=None, title="Positive and Negative Words")
     
-    renderers = p.vbar(x='words', top='polarity_scores', width=0.9, source=source,
+    p.vbar(x='words', top='polarity_scores', width=0.9, source=source,
            line_color='white', fill_color=factor_cmap('words', palette=inferno(len(top_words.index.tolist())), factors=words))
     
     p.xgrid.grid_line_color = None
@@ -623,17 +615,12 @@ def aboutpage():
 def contactpage():
     return render_template('contact.html')
 
-@app.route('/static/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
 @app.route('/neighb_map', methods=['POST', 'GET'])
 def neighb_map():
     
     chosen_city = request.args.get("chosen_city")
     if chosen_city == None:
         chosen_city = 'Austin'
-    
     
     gpd_city_neighborhoods = create_zillow_map(chosen_city)
     gpd_city_neighborhoods2 = create_zillow_map(chosen_city)
@@ -655,8 +642,7 @@ def neighb_clusters():
     if neighb == None:
         neighb = 'Midtown, New York'
     
-    
-       #create the plot
+    #create the plot
     plot1=showViz3(minmax_scaled_df,neighb)
     
     # Embed plot into HTML via Flask Render
@@ -678,7 +664,7 @@ def pos_neg_words():
                          'San Francisco', 'Washington']
 
     chosen_city = request.args.get("chosen_city")
-    #chosen_city='Boston'
+    
     if chosen_city == None:
        chosen_city='Boston'
        
@@ -696,6 +682,3 @@ def pos_neg_words():
 
 if __name__ == '__main__':
     app.run(port=33507)
-
-
-
