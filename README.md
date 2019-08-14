@@ -10,12 +10,13 @@ I then applied Lasso Regression with optimal parameters from 5-fold Cross Valida
 
 In the future,I would like to update my web based app to recommend additional items they might want to sell in their coffee shop to optimize their profits. The idea behind this is to model additional items sold at their competitor coffee shops as strategies in a Nash game with our user being one of the players. A regret-based  neural network will play this game until we hit Nash equilibrium, and then display the optimal strategy. The code for this is still being optimized (see Coffee_Shop_Nash) and the final version will be available shortly.
 
-Note that this code (encluding Nash Equilibrium) can be directly used by visiting the below heroku apps:
+This code (excluding Nash Equilibrium) can be directly used by visiting the below heroku app:
 - Full Site Can be Viewed here (May take 10-20 seconds to load)<br>
   https://coffee-shop-blues.herokuapp.com/<br><br>
-- Interactive Neighborhood Scores Map (May take 10-20 seconds to load)<br>
+  
+- Single Interactive Neighborhood Scores Map (May take 10-20 seconds to load)<br>
   https://interactive-neighb-score-maps.herokuapp.com/
-- Interactive Neighborhood Cluster Map (May take 10-20s to load)<br>
+- Single Interactive Neighborhood Cluster Map (May take 10-20s to load)<br>
   https://interactive-neighb-cluster-map.herokuapp.com/
 
 For manually running this code the files should be run in the following order:
