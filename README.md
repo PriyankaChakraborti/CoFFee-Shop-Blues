@@ -12,7 +12,7 @@ In the future I would like to update my web based app to recommend additional it
 
 This code (excluding Nash Equilibrium) can be directly used by visiting the below heroku app:
 - Full Site Can be Viewed here (May take 10-20 seconds to load)<br>
-  <a href="https://coffee-shop-blues.herokuapp.com/" target="_blank">https://coffee-shop-blues.herokuapp.com/</a><br><br>
+  https://coffee-shop-blues.herokuapp.com<br><br>
   
 - Single Interactive Neighborhood Scores Map (May take 10-20 seconds to load)<br>
   https://interactive-neighb-score-maps.herokuapp.com/
